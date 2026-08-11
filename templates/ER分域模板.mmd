@@ -1,0 +1,28 @@
+%% {域} ER 图模板（通用，业务实体自替换）
+%% 渲染: npx @mermaid-js/mermaid-cli -i <本文件> -o out.png -b white -w 1500
+%% 要点: 每图 ≤10 张表；星型拓扑(一中心多叶子)拆子图；
+%%       关系符 ||--o{ 一对多 / ||--o| 一对一可选 / }o--o{ 多对多(经关联表)
+%%       字段行: 类型 字段名 PK/FK 后接简短注释
+erDiagram
+    base_{entity} ||--o{ {域}_fact : "业务事实"
+    base_{entity} ||--o{ {域}_relation : "作为主体"
+    base_{entity} {
+        varchar {entity}_id PK
+        varchar name
+        date created_date
+        varchar status
+    }
+    {域}_fact {
+        bigint fact_id PK
+        varchar {entity}_id FK
+        varchar fact_type
+        date event_date
+    }
+    {域}_relation {
+        bigint relation_id PK
+        varchar owner_id FK
+        varchar target_id FK
+        date start_date
+        date end_date
+        varchar status
+    }
