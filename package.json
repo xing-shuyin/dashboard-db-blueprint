@@ -1,6 +1,6 @@
 {
   "name": "dashboard-db-blueprint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "pi skill: 从网页驾驶舱/大屏项目统计图表数据需求 → 设计不重复数据库 → 生成全注释 DDL 导入 PostgreSQL → 分域导出 ER 图（通用方法论，业务无关）",
   "keywords": [
     "pi-package",
