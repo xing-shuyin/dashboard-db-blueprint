@@ -44,14 +44,20 @@ python3 scripts/extract_charts.py <页面.html> [更多...]
 └── references/EXAMPLE.md       # 落地案例（教育领域，业务名词仅作示范）
 ```
 
-## 安装为 pi-agent skill
+## 安装为 pi-agent skill（pi package）
 
 ```bash
-# 全局安装（软链到 pi 的 skill 目录）
-mkdir -p ~/.pi/agent/skills
-ln -sfn "$PWD" ~/.pi/agent/skills/dashboard-db-blueprint
-# 或复制：cp -r "$PWD" ~/.pi/agent/skills/dashboard-db-blueprint
+# 方式一：从 npm registry 安装（推荐）
+pi install npm:dashboard-db-blueprint
+
+# 方式二：从 GitHub 安装
+pi install git:github.com/xing-shuyin/dashboard-db-blueprint
+
+# 方式三：本地路径（开发调试）
+pi install /Volumes/P/project/dashboard-db-blueprint
 ```
+
+安装后通过 `/skill:dashboard-db-blueprint` 或任务自动匹配加载。发布到 npm：`npm publish`（包名 `dashboard-db-blueprint`，已标记 `pi-package` 关键词，可在 [pi.dev/packages](https://pi.dev/packages) 画廊检索）。
 
 ## 关键设计原则（通用）
 
